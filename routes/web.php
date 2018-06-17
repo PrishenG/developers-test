@@ -15,6 +15,8 @@ Route::get('/', 'PagesController@index');
 Route::resource('companies', 'CompanyController');
 Route::resource('assets', 'AssetsController');
 
+Route::get('/assets/{company_id}/company_assets', 'AssetsController@company_assets');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

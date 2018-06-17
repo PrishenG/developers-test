@@ -18,6 +18,7 @@ class CreateAssetsTable extends Migration
             $table->string('description');
             $table->string('asset_model');
             $table->double('rand_value', 10, 2);
+            $table->integer('company_id');
         });
     }
 
