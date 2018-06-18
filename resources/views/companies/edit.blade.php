@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<a href="/companies/{{$company->id}}" class="btn btn-info">Go Back</a>
     <h1>Edit Company</h1>
     {!! Form::open(['action' => ['CompanyController@update', $company->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
         <div class="form-group">
