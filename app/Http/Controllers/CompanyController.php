@@ -48,7 +48,7 @@ class CompanyController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'logo' => 'image|nullable|max:1999',
-            'website' => 'required'
+            'website' => 'required|url'
         ]);
         
         //Handle File Upload
@@ -174,6 +174,12 @@ class CompanyController extends Controller
     public function compasset($id)
     {
         $companies = Company::find($id);
-        return view('companies.company_assets')->with('companies', $companies->assets);
+        return view('companies.company_assets')->with('companies', $companies);
+    }
+
+    public function createasset($id)
+    {
+        $companies = Company::find($id);
+        return view('companies/create_asset')->with('companies', $companies->id);
     }
 }

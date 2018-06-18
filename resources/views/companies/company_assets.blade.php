@@ -3,9 +3,9 @@
 @section('content')
     
     <h3>Assets</h3>
-    <a href="/assets/create" class="btn btn-primary">Create Asset</a> <a href="/companies" class="btn btn-info">Go Back</a>
+    <a href="create_asset" class="btn btn-primary">Create Asset</a> <a href="/companies" class="btn btn-info">Go Back</a>
 
-    @if(count($companies) > 0)
+    @if(count($companies->assets) > 0)
 
     <table class="table table-striped">
         <tr>
@@ -15,7 +15,7 @@
             <th></th>
             <th></th>
         </tr>
-        @foreach($companies as $company)
+        @foreach($companies->assets as $company)
         <tr>
                 <td>{{$company->description}}</td>
                 <td>{{$company->asset_model}}</td>

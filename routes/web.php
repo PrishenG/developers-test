@@ -16,6 +16,7 @@ Route::resource('companies', 'CompanyController');
 Route::resource('assets', 'AssetsController');
 
 Route::get('companies/{id}/company_assets', 'CompanyController@compasset');
+Route::get('companies/{id}/create_asset', 'CompanyController@createasset');
 
 Auth::routes();
 

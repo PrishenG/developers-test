@@ -44,7 +44,7 @@ class AssetsController extends Controller
         $this->validate($request, [
             'description' => 'required',
             'asset_model' => 'required',
-            'rand_value' => 'required'
+            'rand_value' => 'required|max:50'
         ]);
 
         //create asset
@@ -55,7 +55,7 @@ class AssetsController extends Controller
         $asset->company_id = $request->input('company_id');
         $asset->save();
 
-        return redirect('/assets')->with('success', 'Asset Created');
+        return redirect('/companies/'.$asset->company_id.'/company_assets')->with('success', 'Asset Created');
     }
 
     /**
@@ -102,10 +102,10 @@ class AssetsController extends Controller
         $asset->description = $request->input('description');
         $asset->asset_model = $request->input('asset_model');
         $asset->rand_value = $request->input('rand_value');
-        $asset->company_id = $request->input('company_id');
+        $asset->company_id = $asset->company_id;
         $asset->save();
 
-        return redirect('/assets')->with('success', 'Asset Updated');
+        return redirect('/companies/'.$asset->company_id.'/company_assets')->with('success', 'Asset Updated');
     }
 
     /**
@@ -118,6 +118,6 @@ class AssetsController extends Controller
     {
         $asset = Asset::find($id);
         $asset->delete();
-        return redirect('/assets')->with('success','Asset Deleted');
+        return redirect('/companies/'.$asset->company_id.'/company_assets')->with('success','Asset Deleted');
     }
 }
