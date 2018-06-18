@@ -166,7 +166,7 @@ class CompanyController extends Controller
             //Delete the image
             Storage::delete('public/logos/'.$company->logo);
         }
-
+        $company->assets()->where('company_id', $id)->delete();
         $company->delete();
         return redirect('/companies')->with('success','Company Deleted');
     }
