@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<a href="/companies/{{$companies}}/company_assets" class="btn btn-info">Go Back</a>
     <h1>Add Asset</h1>
     {!! Form::open(['action' => 'AssetsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
         <div class="form-group">

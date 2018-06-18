@@ -143,7 +143,7 @@ class CompanyController extends Controller
         $company->email = $request->input('email');
         if($request->hasFile('logo'))
         {
-            $post->logo = $fileNameToStore;
+            $company->logo = $fileNameToStore;
         }
         $company->website = $request->input('website');
         $company->save();
