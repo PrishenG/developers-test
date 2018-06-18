@@ -13,7 +13,7 @@
     <hr>
     @if(!Auth::guest())
         
-        <a href="/assets/{{$company->id}}/company_assets" class="btn btn-info">Manage Assets</a>
+        <a href="/companies/{{$company->id}}/company_assets" class="btn btn-info">Manage Assets</a>
 
         <!--Code for deleting-->
         {!!Form::open(['action' => ['CompanyController@destroy', $company->id], 'method' => 'POST', 'class' => 'float-right'])!!}

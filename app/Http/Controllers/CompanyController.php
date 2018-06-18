@@ -170,4 +170,10 @@ class CompanyController extends Controller
         $company->delete();
         return redirect('/companies')->with('success','Company Deleted');
     }
+
+    public function compasset($id)
+    {
+        $companies = Company::find($id);
+        return view('companies.company_assets')->with('companies', $companies->assets);
+    }
 }

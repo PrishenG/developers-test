@@ -23,12 +23,6 @@ class AssetsController extends Controller
         return view('asset.index')->with('assets', $assets);
     }
 
-    public function company_assets($id)
-    {
-        $assets = Asset::find('id');//->where($id->company_id);
-        return view('assets.company_assets')->with('assets', $assets);
-    }
-
     /**
      * Show the form for creating a new resource.
      *

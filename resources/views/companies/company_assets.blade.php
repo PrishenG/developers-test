@@ -3,9 +3,10 @@
 @section('content')
     
     <h3>Assets</h3>
-    <a href="/assets/create" class="btn btn-primary">Create Asset</a>
+    <a href="/assets/create" class="btn btn-primary">Create Asset</a> <a href="/companies" class="btn btn-info">Go Back</a>
 
-    @if(count($assets) > 0)
+    @if(count($companies) > 0)
+
     <table class="table table-striped">
         <tr>
             <th>Description</th>
@@ -14,14 +15,14 @@
             <th></th>
             <th></th>
         </tr>
-        @foreach($assets as $asset)
+        @foreach($companies as $company)
         <tr>
-                <td>{{$asset->description}}</td>
-                <td>{{$asset->asset_model}}</td>
-                <td>{{$asset->rand_value}}</td>
-                <td><a href="/assets/{{$asset->id}}/edit" class="btn btn-default">Edit</a></td>
+                <td>{{$company->description}}</td>
+                <td>{{$company->asset_model}}</td>
+                <td>{{$company->rand_value}}</td>
+                <td><a href="/assets/{{$company->id}}/edit" class="btn btn-default">Edit</a></td>
                 <td>
-                    {!!Form::open(['action' => ['AssetsController@destroy', $asset->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
+                    {!!Form::open(['action' => ['AssetsController@destroy', $company->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
                     {{Form::hidden('_method', 'DELETE')}}
                     {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
                     {!!Form::close()!!}
@@ -32,4 +33,4 @@
     @else
         <p>This company currently has no assets</p>
     @endif
-</div>
+@endsection
