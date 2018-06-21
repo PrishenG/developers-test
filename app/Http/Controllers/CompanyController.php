@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
 use App\Company;
+use App\Mail\Mailtrap;
 
 class CompanyController extends Controller
 {
@@ -77,6 +79,8 @@ class CompanyController extends Controller
         $company->logo = $fileNameToStore;
         $company->website = $request->input('website');
         $company->save();
+
+        Mail::to($company->email)->send(new Mailtrap());
 
         return redirect('/companies')->with('success', 'Company Created');
     }
